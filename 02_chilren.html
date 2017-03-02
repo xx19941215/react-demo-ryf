@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./react-demos/build/react.js"></script>
+    <script src="./react-demos/build/react-dom.js"></script>
+    <script src="./react-demos/build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    //components
+    //this.props.children
+
+    var NodeList = React.createClass({
+        render: function () {
+            return <ol>
+                {
+                   React.Children.map(this.props.children, function (child) {
+                       return <li>{child}</li>
+                   })
+                }
+            </ol>;
+        }
+    });
+
+    ReactDOM.render(
+        <NodeList>
+            <span>hello</span>
+            <span>hello</span>
+        </NodeList>,
+        document.getElementById('example')
+    );
+
+    //NodeList组件的两个子节点span,都可以通过this.pros.child来读取。有三种可能性
+    //1.当前组件没有子节点，他的值就是undefined
+    //2.有一个子节点，值就是第一个对象
+    //3.有三个子节点，值就是一个数组
+
+    //React提供一个工具方法来处理props.children.我们可以使用React.Children.map来遍历子节点，而不用担心this.props.children的类型。
+    
+</script>
+</body>
+</html>

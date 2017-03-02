@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <script src="./react-demos/build/react.js"></script>
+    <script src="./react-demos/build/react-dom.js"></script>
+    <script src="./react-demos/build/browser.min.js"></script>
+</head>
+<body>
+<div id="example"></div>
+<script type="text/babel">
+    //components
+    var MyComponents = React.createClass({
+        handleClick: function () {
+            this.refs.myTextInputs.focus();
+        },
+        render: function () {
+            return (
+                <div>
+                    <input type="text" ref="myTextInputs" />
+                    <input type="button" value="Focus the text input" onClick={this.handleClick}/>
+                </div>
+            );
+        }
+    });
+
+    ReactDOM.render(<MyComponents />, document.getElementById('example'));
+
+    //使用refs.[refName]获取到真实的DOM节点。但是必须等到虚拟DOM插入到文档之后才可以使用这个属性。上面的代码中，使用click作为
+    //回调函数，确保了得到了真实dom节点
+    //react支持的事件列表有很多
+</script>
+</body>
+</html>
