@@ -27,6 +27,8 @@
     });
 
     ReactDOM.render(<LikeButton/>, document.getElementById('example'));
+    //上面的代码是LikeButton组件,他的getInitialState方法定义初状态，也就是一个对象。这个对象分可以通过this.state属性读取。当用户点击组件，导致状态变化，
+    //this.setState方法改变状态值，每次修改之后，自动调用this.render方法，再次渲染组件
 </script>
 </body>
 </html>
